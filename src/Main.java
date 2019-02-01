@@ -23,28 +23,32 @@ public class Main {
         //crear el objeto calculadora
         Calculator calculator = new MyCalculator();
 
-        String[] caracteres = cubilete.get(0).split("");
-        cubilete.remove(0);
-        for (int i = 0; i<caracteres.length;i++){
-            cubilete.add(caracteres[i]);
-        }
 
-        for(int car=0; car<cubilete.size();car++){
-            int num;
-            String caracter = cubilete.get(car);
-            try{
-                num = Integer.parseInt(caracter);
-                pila.push(num);
-            }catch (Exception e) {
-                if (!caracter.equals(" ")) {
-                    int num1 = (int) pila.pop();
-                    int num2 = (int) pila.pop();
-                    int resultado = calculator.calculate(num2, num1, caracter);
-                    pila.push(resultado);
+        for (int a=0; a<cubilete.size();a++) {
+
+
+            String[] caracteres = cubilete.get(a).split("");
+            ArrayList<String> operacion = new ArrayList<>();
+            for (int i = 0; i < caracteres.length; i++) {
+                operacion.add(caracteres[i]);
+            }
+
+            for (int car = 0; car < operacion.size(); car++) {
+                int num;
+                String caracter = operacion.get(car);
+                try {
+                    num = Integer.parseInt(caracter);
+                    pila.push(num);
+                } catch (Exception e) {
+                    if (!caracter.equals(" ")) {
+                        int num1 = (int) pila.pop();
+                        int num2 = (int) pila.pop();
+                        int resultado = calculator.calculate(num2, num1, caracter);
+                        pila.push(resultado);
+                    }
                 }
             }
+            System.out.println("resultado = " + pila.peek());
         }
-        System.out.println("resultado = "+pila.peek());
-
     }
 }
