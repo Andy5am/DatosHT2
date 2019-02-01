@@ -1,7 +1,7 @@
 import java.util.Vector;
 
 public class Pila<E> implements Stack<E>{
-
+    //crear el objeto calculadora
     Calculator calculator = new MyCalculator();
    Vector vector = new Vector();
 
@@ -21,12 +21,12 @@ public class Pila<E> implements Stack<E>{
 
     public E pop(){
        //sacar
-       return (E) vector.remove(0);
+       return (E) vector.remove(vector.size()-1);
     }
 
     public E peek(){
        //no esta vacia, primer elemento de la pila lo devuelve.
-        return (E) vector.get(0);
+        return (E) vector.get(vector.size()-1);
     }
 
     public boolean empty(){
