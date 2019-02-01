@@ -36,15 +36,11 @@ public class Main {
                 num = Integer.parseInt(caracter);
                 pila.push(num);
             }catch (Exception e) {
-                if (caracter.equals(" ")) {
-
-                } else {
-                    for (int a = 0; a < pila.vector.size(); a++) {
-                        int num1 = (int) pila.pop();
-                        int num2 = (int) pila.pop();
-                        int resultado = calculator.calculate(num2, num1, caracter);
-                        pila.push(resultado);
-                    }
+                if (!caracter.equals(" ")) {
+                    int num1 = (int) pila.pop();
+                    int num2 = (int) pila.pop();
+                    int resultado = calculator.calculate(num2, num1, caracter);
+                    pila.push(resultado);
                 }
             }
         }
