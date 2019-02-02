@@ -38,13 +38,13 @@ public class Main {
 
         for (int a=0; a<cubilete.size();a++) {
 
-
+            //ciclo para separar cada fila de la lista es sus caracteres
             String[] caracteres = cubilete.get(a).split("");
             ArrayList<String> operacion = new ArrayList<>();
             for (int i = 0; i < caracteres.length; i++) {
                 operacion.add(caracteres[i]);
             }
-
+            //ciclo para evaluar si es numero u operando
             for (int car = 0; car < operacion.size(); car++) {
                 int num;
                 String caracter = operacion.get(car);
@@ -52,6 +52,7 @@ public class Main {
                     num = Integer.parseInt(caracter);
                     pila.push(num);
                 } catch (Exception e) {
+                    //si es operando se calcula el resultado
                     if (!caracter.equals(" ")) {
                         int num1 = pila.pop();
                         int num2 = pila.pop();
@@ -60,6 +61,7 @@ public class Main {
                     }
                 }
             }
+            //se muestra resultado
             System.out.println("resultado = " + pila.peek());
         }
     }
