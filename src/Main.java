@@ -5,7 +5,19 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
+/**
+ * Clase Main
+ * Se encarga de la interacción coon el usuario, coloca el documento txt, lol lee y devuelve el resultado.
+ *
+ * @author Andy Catillo y Abril Palencia
+ * @version 31/01/2019
+ */
+
 public class Main {
+    /**
+     * Método main
+     * @param args
+     */
     public static void main(String[] args){
         //para leer el archivo
         ArrayList<String> cubilete = new ArrayList<String>();
