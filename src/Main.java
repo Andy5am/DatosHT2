@@ -23,7 +23,7 @@ public class Main {
         ArrayList<String> cubilete = new ArrayList<String>();
         try {
             Stream<String> lines = Files.lines(
-                    Paths.get("C:\\Users\\Andy Castillo\\Documents\\datos.txt"),
+                    Paths.get(System.getProperty("user.dir")+"\\datos.txt"),
                     StandardCharsets.UTF_8
             );
             lines.forEach(a -> cubilete.add(a));
@@ -31,7 +31,7 @@ public class Main {
             System.out.println("Error!");
         }
         //crear el objeto pila
-        Pila pila = new Pila();
+        Pila<Integer> pila = new Pila<>();
         //crear el objeto calculadora
         Calculator calculator = new MyCalculator();
 
@@ -53,8 +53,8 @@ public class Main {
                     pila.push(num);
                 } catch (Exception e) {
                     if (!caracter.equals(" ")) {
-                        int num1 = (int) pila.pop();
-                        int num2 = (int) pila.pop();
+                        int num1 = pila.pop();
+                        int num2 = pila.pop();
                         int resultado = calculator.calculate(num2, num1, caracter);
                         pila.push(resultado);
                     }

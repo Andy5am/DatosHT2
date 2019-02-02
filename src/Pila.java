@@ -13,7 +13,7 @@ import java.util.Vector;
 public class Pila<E> implements Stack<E>{
     //crear el objeto calculadora
     Calculator calculator = new MyCalculator();
-   Vector vector = new Vector();
+   Vector<E> vector = new Vector<>();
 
     /**
      * Método push.
@@ -32,7 +32,7 @@ public class Pila<E> implements Stack<E>{
      */
     public E pop(){
        //sacar
-       return (E) vector.remove(vector.size()-1);
+       return vector.remove(vector.size()-1);
     }
 
     /**
@@ -42,7 +42,7 @@ public class Pila<E> implements Stack<E>{
      */
     public E peek(){
        //no esta vacia, primer elemento de la pila lo devuelve.
-        return (E) vector.get(vector.size()-1);
+        return vector.get(vector.size()-1);
     }
 
     /**
